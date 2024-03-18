@@ -162,7 +162,7 @@ func updateData() {
 
 // Function to delete row from Excel
 func deleteRowFromExcel(row int) {
-	file.RemoveRow("Comp490 Jobs", row)
+	_ = file.RemoveRow("Comp490 Jobs", row)
 	saveExcelFile()
 }
 
@@ -170,7 +170,7 @@ func deleteRowFromExcel(row int) {
 func updateRowInExcel(row int, data []string) {
 	for i, value := range data {
 		cell := ToAlphaString(i) + strconv.Itoa(row)
-		file.SetCellValue("Comp490 Jobs", cell, value)
+		_ = file.SetCellValue("Comp490 Jobs", cell, value)
 	}
 	saveExcelFile()
 }
@@ -197,7 +197,7 @@ func ToAlphaString(i int) string {
 
 	var result string
 	for i >= 0 {
-		result = string('A'+i%26) + result
+		result = strconv.Itoa('A'+i%26) + result
 		i = i/26 - 1
 	}
 	return result
@@ -208,7 +208,15 @@ func appendDataToExcel(data []string) {
 	row := len(lastColumn) + 1
 	for i, value := range data {
 		cell := ToAlphaString(i) + strconv.Itoa(row)
-		file.SetCellValue("Comp490 Jobs", cell, value)
+		_ = file.SetCellValue("Comp490 Jobs", cell, value)
 	}
 	saveExcelFile()
 }
+
+/*I referred to the following resources to complete this project:
+
+Kelche Blog
+Fyne Website
+7GUIs Repository
+Fyne - GoLang GUI Tutorials by Alikh Khan on YouTube
+ChatGPT */
