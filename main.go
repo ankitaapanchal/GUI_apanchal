@@ -213,10 +213,3 @@ func appendDataToExcel(data []string) {
 	saveExcelFile()
 }
 
-/*I referred to the following resources to complete this project:
-
-Kelche Blog
-Fyne Website
-7GUIs Repository
-Fyne - GoLang GUI Tutorials by Alikh Khan on YouTube
-ChatGPT */
